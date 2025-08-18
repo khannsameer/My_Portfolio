@@ -32,6 +32,7 @@ import pokemonCards from "../assets/pokemonCards.jpg";
 import backnd from "../assets/backnd.png";
 import userInterface from "../assets/userInterface.png";
 import html5 from "../assets/tech/html5.png";
+import css3 from "../assets/tech/css3.png";
 
 export const navLinks = [
   {
@@ -74,7 +75,7 @@ const technologies = [
   },
   {
     name: "CSS 3",
-    icon: css,
+    icon: css3,
   },
   {
     name: "JavaScript",
