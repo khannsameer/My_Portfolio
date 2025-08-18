@@ -5,33 +5,30 @@ const Loader = () => {
   const { progress } = useProgress();
 
   return (
-    <Html
-      as="div"
-      center
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100vh",
-        width: "100vw",
-        backgroundColor: "#0d0d0d", // dark background (fix white flash)
-      }}
-    >
-      {/* Loader animation */}
-      <span className="canvas-load"></span>
-
-      {/* Percentage text */}
-      <p
+    <Html center>
+      <div
         style={{
-          fontSize: "16px",
-          color: "#f1f1f1",
-          fontWeight: "bold",
-          marginTop: "20px",
+          backgroundColor: "#000", // solid black background
+          minWidth: "100vw",
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        {progress.toFixed(0)}%
-      </p>
+        <span className="canvas-load"></span>
+        <p
+          style={{
+            fontSize: 14,
+            color: "#f1f1f1",
+            fontWeight: 800,
+            marginTop: 40,
+          }}
+        >
+          {progress.toFixed(2)}%
+        </p>
+      </div>
     </Html>
   );
 };
