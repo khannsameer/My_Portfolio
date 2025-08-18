@@ -46,9 +46,9 @@ const Hero = () => {
       </div>
 
       {/* 3D Model Canvas (put behind text) */}
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <ComputersCanvas />
-      </div>
+      </div> */}
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-[5%] w-full flex justify-center items-center z-10">
