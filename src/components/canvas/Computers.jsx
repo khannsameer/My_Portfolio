@@ -1,79 +1,30 @@
-import React, { Suspense, useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import React from "react";
+import Tilt from "react-parallax-tilt";
 
-const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./desktop_pc/scene.gltf");
-
+const ComputersCanvas = ({ icon, title }) => {
   return (
-    <mesh>
-      <hemisphereLight intensity={0.3} groundColor="#1a1a1a" />
-      <directionalLight position={[5, 10, 5]} intensity={4} castShadow />
-      <spotLight
-        position={[0, 5, 5]}
-        angle={0.2}
-        penumbra={0.5}
-        intensity={2}
-        castShadow
-        color={"#ffffff"}
-        shadow-mapSize={1024}
-      />
-      <pointLight position={[0, 5, 5]} intensity={6} />
-      <primitive
-        object={computer.scene}
-        scale={isMobile ? 0.5 : 0.55}
-        position={isMobile ? [0, -2.8, -1.5] : [0, -2.9, -1.8]}
-        rotation={[0, 0.3, 0]}
-      />
-    </mesh>
-  );
-};
-
-const ComputersCanvas = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Add a listener for changes to the screen size
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
-
-    // Set the initial value of the `isMobile` state variable
-    setIsMobile(mediaQuery.matches);
-
-    // Define a callback function to handle changes to the media query
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    // Add the callback function as a listener for changes to the media query
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    // Remove the listener when the component is unmounted
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
-
-  return (
-    <Canvas
-      frameloop="always"
-      shadows
-      dpr={[1, 2]}
-      camera={{ position: [7, 3, 8], fov: 40 }}
-      gl={{ preserveDrawingBuffer: true }}
-      style={{ background: "#0a0a0a" }}
+    <Tilt
+      glareEnable={true}
+      glareMaxOpacity={0.2}
+      scale={1.05}
+      transitionSpeed={2500}
+      tiltMaxAngleX={15}
+      tiltMaxAngleY={15}
+      className="w-64 h-64"
     >
-      {/* Suspense with no loader */}
-      <Suspense fallback={null}>
-        <OrbitControls
-          enableZoom={false}
-          maxPolarAngle={Math.PI / 2.2}
-          minPolarAngle={Math.PI / 3}
+      <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-xl flex flex-col items-center justify-center p-6">
+        <img
+          src={icon}
+          alt={title || "computer-icon"}
+          className="w-24 h-24 object-contain mb-4"
         />
-        <Computers isMobile={isMobile} />
-      </Suspense>
-
-      <Preload all />
-    </Canvas>
+        {title && (
+          <p className="text-white font-semibold text-lg text-center">
+            {title}
+          </p>
+        )}
+      </div>
+    </Tilt>
   );
 };
 
