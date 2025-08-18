@@ -44,9 +44,11 @@ const Navbar = () => {
             }}
           >
             <img src={myPhoto} alt="s" className="w-15 h-15 object-contain" />
-            <p className="text-white text-[18px] font-bold cursor-pointer flex">
+            <p className="text-white text-2xl font-bold cursor-pointer flex">
               Sameer &nbsp;
-              <span className="sm:block hidden">| Frontend Developer</span>
+              <span className="sm:block hidden text-2xl">
+                | Frontend Developer
+              </span>
             </p>
           </Link>
           <ul className="list-none hidden sm:flex flex-row gap-10">
