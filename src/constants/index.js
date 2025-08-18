@@ -1,7 +1,7 @@
 import {
   // mobile,
   // backend,
-  creator,
+  // creator,
   // web,
   javascript,
   typescript,
@@ -31,6 +31,7 @@ import tastyNest from "../assets/tastyNest.jpg";
 import pokemonCards from "../assets/pokemonCards.jpg";
 import backnd from "../assets/backnd.png";
 import userInterface from "../assets/userInterface.png";
+import html5 from "../assets/tech/html5.png";
 
 export const navLinks = [
   {
@@ -69,7 +70,7 @@ const services = [
 const technologies = [
   {
     name: "HTML 5",
-    icon: html,
+    icon: html5,
   },
   {
     name: "CSS 3",
